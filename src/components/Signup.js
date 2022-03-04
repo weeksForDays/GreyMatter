@@ -1,17 +1,15 @@
-import React, {useRef} from 'react';
+import React, {useState} from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 //import {useAuth} from '../contexts/AuthContext';
 
 export default function Signup() {
-	const emailRef = useRef();
-	const passwordRef = useRef();
-	const passwordConfirmRef = useRef();
-	const { signup } = useAuth();
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [passwordConfirm, setPasswordConfirm] = useState(false);
+	// const { signup } = useAuth();
 
-	function handleSubmit(e) {
-		e.preventDefault()
-
-		signup(emailRef.current.value, passwordRef.current.value);
+	const handleSubmit = () => {
+		// signup(email, password);
 	}
 
 	return (
@@ -22,17 +20,17 @@ export default function Signup() {
 					<Form>
 						<Form.Group id="email">
 							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" ref={emailRef} required />
+							<Form.Control onChange={(event) => setEmail(event.target.value)} value={email} type="email" required />
 						</Form.Group>
 						<Form.Group id="password">
 							<Form.Label>Password</Form.Label>
-							<Form.Control type="password" ref={passwordRef} required />
+							<Form.Control onChange={(event) => setPassword(event.target.value)} value={password} type="password"  required />
 						</Form.Group>
 						<Form.Group id="password-confirm">
 							<Form.Label>Confirm Password</Form.Label>
-							<Form.Control type="password" ref={passwordConfirmRef} required />
+							<Form.Control onChange={(event) => setPasswordConfirm(event.target.value)} value={passwordConfirm} type="password" required />
 						</Form.Group>
-						<Button className="w-100 mt-4" type="submit">
+						<Button onClick={() => handleSubmit()} className="w-100 mt-4" type="submit">
 							Sign Up
 						</Button>
 					</Form>

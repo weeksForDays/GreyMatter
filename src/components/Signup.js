@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
-import {useAuth} from '../contexts/AuthContext';
+//import {useAuth} from '../contexts/AuthContext';
 
 export default function Signup() {
 	const emailRef = useRef();

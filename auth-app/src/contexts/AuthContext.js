@@ -22,11 +22,12 @@ export function AuthProvider({ children }) {
 	}, [])
 
 	const value = {
-		currentUser
+		currentUser,
+		signup
 	}
 
 	return (
-		<AuthContext.Provider>
+		<AuthContext.Provider value={value}>
 			{children}
 		</AuthContext.Provider>
 	)

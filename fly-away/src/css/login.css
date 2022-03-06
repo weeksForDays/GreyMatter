@@ -1,0 +1,24 @@
+.centereonpage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centeronscreen {
+    margin: 0 auto;
+}
+
+.loginwidth {
+    max-width: 500px;
+}
+
+.centertext {
+    text-align: center;
+}
+
+.google {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}

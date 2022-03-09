@@ -7,6 +7,10 @@
     filter: blur(2px);
 }
 
+.disableClickEvents {
+    pointer-events: none;
+}
+
 .card {
     display: flex;
     align-items: center;

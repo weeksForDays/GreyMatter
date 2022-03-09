@@ -6,6 +6,6 @@
     "\\src\\contexts",
     "\\src\\css"
   ],
-  "SelectedNode": "\\src\\components\\AircraftData.jsx",
+  "SelectedNode": "\\src\\contexts\\ObfuscationContext.js",
   "PreviewInSolutionExplorer": false
 }

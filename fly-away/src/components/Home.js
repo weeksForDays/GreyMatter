@@ -12,7 +12,7 @@ const Home = () => {
 	let cssClasses = ["centeronscreen", "loginwidth"];
 	const [isModelOpen, setIsModalOpen] = useState(false);
 
-	const {obfuscated, toggleObfuscated} = useObfuscation();
+	const {obfuscated, toggleObfuscated, setObfuscated} = useObfuscation();
 
 	const {user, logOut} = useUserAuth();
 
@@ -28,12 +28,18 @@ const Home = () => {
 	}
 
 	const handleObfuscate = () => {
-		toggleObfuscated();
-		setIsModalOpen(!isModelOpen);
+		setObfuscated(true);
+		setIsModalOpen(true);
+	}
+
+	const handleDeobfuscate = () => {
+		setObfuscated(false);
+		setIsModalOpen(false);
 	}
 
 	if (obfuscated) {
 		cssClasses.push("blur");
+		cssClasses.push("disableClickEvents");
 	}
 
 	return (
@@ -46,7 +52,7 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="centeronscreen d-flex justify-content-center">
-				<TestModal open={isModelOpen} handleObfuscateFunc={handleObfuscate}>
+				<TestModal open={isModelOpen} handleObfuscateFunc={handleDeobfuscate}>
 					This is a test.
 				</TestModal>
 			</div>

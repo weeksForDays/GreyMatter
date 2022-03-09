@@ -11,7 +11,7 @@ export function ObfuscationContextProvider({children}) {
 	const [obfuscated, setObfuscated] = useState();
 
 	return (
-		<obfuscationContext.Provider value={{obfuscated, toggleObfuscated}}>
+		<obfuscationContext.Provider value={{obfuscated, toggleObfuscated, setObfuscated}}>
 			{children}
 		</obfuscationContext.Provider>
 	)

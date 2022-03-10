@@ -8,6 +8,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
         <App />
+        <div id="portal"></div>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

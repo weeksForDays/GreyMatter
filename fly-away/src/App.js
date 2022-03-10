@@ -2,6 +2,7 @@ import './App.css';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
+import FirestorePage from './components/FirestorePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import {Container, Row, Col} from "react-bootstrap";
 import { Routes, Route} from 'react-router-dom';
@@ -23,6 +24,11 @@ function App() {
                             } />
                             <Route path='/login' element={<Login />} />
                             <Route path='/signup' element={<Signup />} />
+                            <Route path='/firestoretest' element={
+                                <ProtectedRoute>
+                                    <FirestorePage />
+                                </ProtectedRoute>
+                            } />
                         </Routes>
                     </UserAuthContextProvider>
                 </ObfuscationContextProvider>

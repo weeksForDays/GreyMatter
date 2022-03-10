@@ -1,0 +1,42 @@
+.outline {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    width: 400px;
+}
+
+.alignVert {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.componentModalTitle {
+    margin-top: 5px;
+}
+
+.modal {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1001;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 999;
+}
+
+.alignButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fixButtons {
+    width: 400px;
+}

@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import '../css/login.css';
 import {useUserAuth} from "../contexts/UserAuthContext";
 import {Navigate, useNavigate} from 'react-router-dom';
+import NewAccount from "./NewAccount";
 
 const Home = () => {
 	const {user, logOut} = useUserAuth();
@@ -20,7 +21,7 @@ const Home = () => {
 
 	return (
 		<div className="centeronscreen loginwidth">
-			<div className = "p-4 box mt-3 text-center"> Hello World</div>
+			<div><NewAccount/></div>
 			<div className = "d-grid gap-2">
 				<Button variant = "primary" onClick={handleLogOut}>Log Out</Button>
 			</div>

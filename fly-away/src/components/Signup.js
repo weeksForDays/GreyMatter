@@ -32,8 +32,9 @@ const Signup = () => {
 	}
 
 	return (
+
 		<div className="p-4 centeronscreen centertext loginwidth">
-		<h2 className="mb-3">Firebase Auth Signup</h2>
+		<h2 className="mb-3">Sign Up for FlyAway</h2>
 		{error && <Alert variant="danger">{error}</Alert>}
 			<Form className="loginwidth" onSubmit={handleSubmit}>
 				<Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
@@ -57,6 +58,7 @@ const Signup = () => {
 						onChange={ (e) => setConfirmPass(e.target.value)}
 					/>
 				</Form.Group>
+				
 				<div className="d-grid gap-2">
 					<Button variant="primary" type="Submit">
 						Signup

@@ -8,6 +8,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import { Routes, Route} from 'react-router-dom';
 import {UserAuthContextProvider} from './contexts/UserAuthContext';
 import {ObfuscationContextProvider} from './contexts/ObfuscationContext';
+import NewAccount from './components/NewAccount';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                             } />
                             <Route path='/login' element={<Login />} />
                             <Route path='/signup' element={<Signup />} />
+                            <Route path='/accountGen' element={<div className = "p-4 box mt-3 text-center"><NewAccount /></div>} />
                             <Route path='/firestoretest' element={
                                 <ProtectedRoute>
                                     <FirestorePage />

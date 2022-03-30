@@ -7,7 +7,7 @@ const Messenger = () => {
 
 	return (
 		<div>
-			Hello World
+			Hello World!
 		</div>
 	)
 }

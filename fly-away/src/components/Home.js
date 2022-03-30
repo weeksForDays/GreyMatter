@@ -27,6 +27,10 @@ const Home = () => {
 	const handleNewAccountNav = () => {
 		navigate('/accountGen');
 	}
+	
+	const handleMessengerNav = () => {
+		navigate('/messenger');
+	}
 
 	return (
 		<div>
@@ -35,6 +39,7 @@ const Home = () => {
 					<Button variant = "primary" onClick={handleLogOut}>Log Out</Button>
 					<Button variant = "secondary" onClick={handleFirestoreNav}>Firestore Demo</Button>
 					<Button variant = "secondary" onClick={handleNewAccountNav}>New Account</Button>
+					<Button variant = "secondary" onClick={handleMessengerNav}>Messenger Test</Button>
 				</div>
 			</div>
 		</div>

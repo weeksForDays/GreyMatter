@@ -1,0 +1,6 @@
+npm i start
+npm i react-bootstrap
+npm i react-google-button
+npm i bootstrap
+npm i firebase
+npm i react-router-dom

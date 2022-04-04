@@ -3,6 +3,7 @@ import {Card, Button, Form, Alert} from 'react-bootstrap';
 import '../css/login.css';
 import {Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from "../contexts/UserAuthContext";
+import { db } from '../firebase';
 
 const Signup = () => {
 	const [email, setEmail] = useState("");
@@ -29,6 +30,7 @@ const Signup = () => {
 		} catch (err) {
 			setError(err.message);
 		}
+		
 	}
 
 	return (

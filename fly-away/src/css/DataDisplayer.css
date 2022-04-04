@@ -5,6 +5,17 @@
     width: 400px;
 }
 
+#email {
+    font-size: 25px;
+    color:blue;
+}
+
+#title {
+    
+    margin:20px;
+
+}
+
 .alignVert {
     display: flex;
     flex-direction: column;

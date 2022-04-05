@@ -4,10 +4,11 @@ import '../css/login.css';
 import '../css/Home.css';
 import {useUserAuth} from "../contexts/UserAuthContext";
 import {useNavigate} from 'react-router-dom';
-import UserGenerator from './UserGenerator';
-import {UserGenContextProvider} from '../contexts/UserGenContext';
+import {useUserGen} from '../contexts/UserGenContext';
 
 const Home = () => {
+
+	const {createUser} = useUserGen();
 
 	const {logOut} = useUserAuth();
 
@@ -37,7 +38,7 @@ const Home = () => {
 	}
 
 	const handleUserGenTest = () => {
-		setUserGen(!userGen);
+		createUser(true, "test@test.com", "343");
 	}
 
 	return (
@@ -50,9 +51,6 @@ const Home = () => {
 					<Button variant = "secondary" onClick={handleMessengerNav}>Messenger Test</Button>
 					<Button variant = "secondary" onClick={handleUserGenTest}>UserGen Test</Button>
 				</div>
-				<UserGenContextProvider>
-					{userGen && <UserGenerator/>}
-				</UserGenContextProvider>
 			</div>
 		</div>
 	);

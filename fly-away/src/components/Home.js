@@ -8,7 +8,7 @@ import {useFirestore} from '../contexts/FirestoreContext';
 
 const Home = () => {
 
-	const {createUser} = useFirestore();
+	const {createConversation} = useFirestore();
 
 	const {logOut} = useUserAuth();
 
@@ -38,8 +38,7 @@ const Home = () => {
 	}
 
 	const handleUserGenTest = () => {
-		createUser(true, "test@test.com", 343);
-		createUser(false, "passenger@test.com", 69420);
+		createConversation([{isPilot: true, ID: 343}, {isPilot: false, ID: 69420}]);
 	}
 
 	return (
@@ -50,7 +49,7 @@ const Home = () => {
 					<Button variant = "secondary" onClick={handleFirestoreNav}>Firestore Demo</Button>
 					<Button variant = "secondary" onClick={handleNewAccountNav}>New Account</Button>
 					<Button variant = "secondary" onClick={handleMessengerNav}>Messenger Test</Button>
-					<Button variant = "secondary" onClick={handleUserGenTest}>UserGen Test</Button>
+					<Button variant = "secondary" onClick={handleUserGenTest}>CreateConversation Test</Button>
 				</div>
 			</div>
 		</div>

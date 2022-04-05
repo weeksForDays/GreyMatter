@@ -8,7 +8,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import { Routes, Route} from 'react-router-dom';
 import {UserAuthContextProvider} from './contexts/UserAuthContext';
 import {ObfuscationContextProvider} from './contexts/ObfuscationContext';
-import {UserGenContextProvider} from './contexts/UserGenContext';
+import {FirestoreContextProvider} from './contexts/FirestoreContext';
 import NewAccount from './components/NewAccount';
 import Messenger from './components/Messenger';
 
@@ -19,7 +19,7 @@ function App() {
             <Col>
                 <ObfuscationContextProvider>
                     <UserAuthContextProvider>
-                        <UserGenContextProvider>
+                        <FirestoreContextProvider>
                             <Routes>
                                 <Route path='/' element={
                                     <ProtectedRoute>
@@ -36,7 +36,7 @@ function App() {
                                     </ProtectedRoute>
                                 } />
                             </Routes>
-                        </UserGenContextProvider>
+                        </FirestoreContextProvider>
                     </UserAuthContextProvider>
                 </ObfuscationContextProvider>
             </Col>

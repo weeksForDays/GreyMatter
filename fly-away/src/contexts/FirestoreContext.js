@@ -2,9 +2,9 @@ import React, {createContext, useEffect, useState, useContext} from "react";
 import {db} from '../firebase';
 import {collection, addDoc, setDoc, doc} from 'firebase/firestore';
 
-const userGenContext = createContext();
+const firestoreContext = createContext();
 
-export function UserGenContextProvider({children}) {
+export function FirestoreContextProvider({children}) {
 
 	const createUser = async (isPilot, email, ID) => {
 		if (isPilot) {
@@ -28,14 +28,20 @@ export function UserGenContextProvider({children}) {
 		});
 	}
 
+	const createConversation = async (users) => {
+		await addDoc(doc(db, "Conversations"), {
+			
+		});
+	}
+
 	return (
-		<userGenContext.Provider value={{createUser}}>
+		<firestoreContext.Provider value={{createUser}}>
 			{children}
-		</userGenContext.Provider>
+		</firestoreContext.Provider>
 	)
 
 }
 
-export function useUserGen() {
-	return useContext(userGenContext);
+export function useFirestore() {
+	return useContext(firestoreContext);
 }

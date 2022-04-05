@@ -4,11 +4,11 @@ import '../css/login.css';
 import '../css/Home.css';
 import {useUserAuth} from "../contexts/UserAuthContext";
 import {useNavigate} from 'react-router-dom';
-import {useUserGen} from '../contexts/UserGenContext';
+import {useFirestore} from '../contexts/FirestoreContext';
 
 const Home = () => {
 
-	const {createUser} = useUserGen();
+	const {createUser} = useFirestore();
 
 	const {logOut} = useUserAuth();
 
@@ -38,7 +38,8 @@ const Home = () => {
 	}
 
 	const handleUserGenTest = () => {
-		createUser(true, "test@test.com", "343");
+		createUser(true, "test@test.com", 343);
+		createUser(false, "passenger@test.com", 69420);
 	}
 
 	return (

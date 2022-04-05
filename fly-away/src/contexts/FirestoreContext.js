@@ -28,14 +28,31 @@ export function FirestoreContextProvider({children}) {
 		});
 	}
 
+	// This needs a way to generate a unique name for every conversation, in a way that can then be queried in code...
 	const createConversation = async (users) => {
-		await addDoc(doc(db, "Conversations"), {
-			
+		const convoRef = await addDoc(collection(db, "Conversations"), {
+			Users: {
+				test: "test"
+			}
 		});
+
+		users.map(async user => {
+
+			await setDoc(doc(db, "Conversations", convoRef.id.toString()), {
+				Users: {
+					[user.ID]: {
+						ID: user.ID,
+						isPilot: user.isPilot
+					}
+				}
+			}, {merge: true});
+		})
+
+		console.log(convoRef, " ", convoRef.id);
 	}
 
 	return (
-		<firestoreContext.Provider value={{createUser}}>
+		<firestoreContext.Provider value={{createUser, createConversation}}>
 			{children}
 		</firestoreContext.Provider>
 	)

@@ -9,6 +9,7 @@ import { Routes, Route} from 'react-router-dom';
 import {UserAuthContextProvider} from './contexts/UserAuthContext';
 import {ObfuscationContextProvider} from './contexts/ObfuscationContext';
 import NewAccount from './components/NewAccount';
+import Messenger from './components/Messenger';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                                 </ProtectedRoute>
                             } />
                             <Route path='/login' element={<Login />} />
+                            <Route path='/messager' element={<Messenger />} />
                             <Route path='/signup' element={<Signup />} />
                             <Route path='/accountGen' element={<div className = "p-4 box mt-3 text-center"><NewAccount /></div>} />
                             <Route path='/firestoretest' element={

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Card, Button, Form, Alert, Dropdown, DropdownButton, DropdownItem} from 'react-bootstrap';
 import '../css/login.css';
+import '../css/NewAccount.css';
 
 export default class NewAccount extends Component {
 

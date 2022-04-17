@@ -20,8 +20,7 @@ export default class NewAccount extends Component {
         AircraftType: "",
         AircraftID: ""
     } 
-
-	// const [Address, setAddress] = useState("");
+  
     //Event Handlers Go Here
     handlePilot = () =>{
         const userType = "Pilot";

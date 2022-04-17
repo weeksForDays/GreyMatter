@@ -7,8 +7,7 @@ const DataDisplayer = (props) => {
 	return (
 		<Card className="flexItem outline">
 			<div>
-				<h1>Name: {props.name}</h1>
-				<h1>Age: {props.age}</h1>
+				<h1 id="email" >Email: {props.email}</h1>
             </div>
 		</Card>
 	);

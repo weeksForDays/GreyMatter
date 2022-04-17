@@ -20,7 +20,7 @@ const FirestorePage = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const [users, setUsers] = useState([]);
-    const usersCollectionRef = collection(db, "Users");
+    const usersCollectionRef = collection(db, "UsersTest");
 
 	let cssClasses = ["App", "alignVert"];
 
@@ -73,10 +73,13 @@ const FirestorePage = () => {
 						Go Home
 					</Button>
 				</div>
+				<div id="title">
+					<h1>List of all user accounts</h1>
+				</div>
 				{users.map((user) => {
 						return (
 							<div key={user.id}>
-								<DataDisplayer name={user.name} age={user.age}/>
+								<DataDisplayer email={user.email}/>
 							</div>
 						)
 					})}

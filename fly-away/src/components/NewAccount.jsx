@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import {Card, Button, Form, Alert, Dropdown, DropdownButton, DropdownItem} from 'react-bootstrap';
 import '../css/login.css';
 import '../css/NewAccount.css';
+import {useFirestore} from '../contexts/FirestoreContext.js';
 
 export default class NewAccount extends Component {
 
     state = {
         userType: "Unknown",
-        pilotQual: "Certification:"
+        pilotQual: "Certification:",
+        FirstName: "",
+        LastName: "",
+        Address: "",
+        City: "",
+        USState: "",
+        ZipCode: "",
+        Airport: "",
+        ICAO: "",
+        AircraftType: "",
+        AircraftID: ""
     } 
-
-<<<<<<< Updated upstream
-    // const [FirstName, setFirstName] = useState("");
-	// const [LastName, setLastName] = useState("");
-	// const [Address, setAddress] = useState("");
-	// const [City, setCity] = useState("");
-	// const [USState, setUSState] = useState("");
-	// const [ZipCode, setZipCode] = useState("");
-	// const [PhoneNumber, setPhoneNumber] = useState("");
-
-=======
->>>>>>> Stashed changes
+  
     //Event Handlers Go Here
     handlePilot = () =>{
         const userType = "Pilot";
@@ -57,6 +57,79 @@ export default class NewAccount extends Component {
         this.setState({pilotQual});
     }
 
+    handleSubmit = (e) =>{
+        e.preventDefault();
+
+        const {createUser} = useFirestore();
+        createUser(
+            this.state.userType,
+            "test@test.com",
+            19037908,
+            this.state.FirstName,
+            this.state.LastName,
+            this.state.Address,
+            this.state.City,
+            this.state.USState,
+            this.state.ZipCode,
+            this.state.Airport,
+            this.state.ICAO,
+            this.state.AircraftType,
+            this.state.AircraftID
+        );
+    }
+
+    //Setter Methods for form completion
+
+    setFirstName = (e) =>{
+        const FirstName = e.target.value;
+        this.setState(FirstName);
+    }
+
+    setLastName = (e) =>{
+        const LastName = e.target.value;
+        this.setState(LastName);
+    }
+
+    setAddress = (e) =>{
+        const Address = e.target.value;
+        this.setState(Address);
+    }
+
+    setCity = (e) =>{
+        const City = e.target.value;
+        this.setState(City);
+    }
+
+    setUSState = (e) =>{
+        const USState = e.target.value;
+        this.setState(USState);
+    }
+
+    setZipCode = (e) =>{
+        const ZipCode = e.target.value;
+        this.setState(ZipCode);
+    }
+
+    setAirport = (e) =>{
+        const Airport = e.target.value;
+        this.setState(Airport);
+    }
+
+    setICAO = (e) =>{
+        const ICAO = e.target.value;
+        this.setState(ICAO);
+    }
+
+    setAircraftType = (e) =>{
+        const AircraftType = e.target.value;
+        this.setState(AircraftType);
+    }
+
+    setAircraftID = (e) =>{
+        const AircraftID = e.target.value;
+        this.setState(AircraftID);
+    }
+
     //Other Functions Go Here
     updateUserType(){
         if(this.state.userType == "Pilot"){
@@ -82,7 +155,7 @@ export default class NewAccount extends Component {
                             >Private Pilot
                         </Dropdown.Item>
                         <Dropdown.Item
-                            onClick={this.handlePrivatePilotInst}
+                            onClick={this.handleCommercialPilotInst}
                             >Private Pilot with Insturment Rating
                         </Dropdown.Item>
                         <Dropdown.Item
@@ -103,11 +176,13 @@ export default class NewAccount extends Component {
                             className="formMedium"
                             type='AirportName' 
                             placeholder='Home Airport (Name)'
+                            onChange={ (e) => this.setAirport(e.target.value)}		
                         />
                         <Form.Control
                             className="formSmall"
                             type='AirportICAO' 
                             placeholder='ICAO'
+                            onChange={ (e) => this.setICAO(e.target.value)}		
                         />
                     </Form.Group>
                     <Form.Group className="mb-3 flex" controlId="aircraft">
@@ -115,11 +190,13 @@ export default class NewAccount extends Component {
                             className="formMedium"
                             type='AircraftType' 
                             placeholder='Primary Aircraft Type'
+                            onChange={ (e) => this.setAircraftType(e.target.value)}		
                         />
                         <Form.Control
                             className="formSmall"
                             type='AircraftID' 
                             placeholder='Aircraft ID'
+                            onChange={ (e) => this.setAircraftID(e.target.value)}		
                         />
                     </Form.Group>
                 </div>
@@ -131,19 +208,19 @@ export default class NewAccount extends Component {
         return (
             <div className="p-4 centeronscreen centertext loginwidth">
                 <h2 className="mb-3">Create a New Account</h2>
-                <Form>
+                <Form onSubmit={this.handleSubmit}>
                     <Form.Group className="mb-3 flex" controlId="name">
                         <Form.Control
                             className="formMedium"
                             type='FirstName' 
                             placeholder='First Name'
-                            //onChange={ (e) => setFirstName(e.target.value)}
+                            onChange={(e) => this.setFirstName(e.target.value)}
                         />
                         <Form.Control
                             className="formMedium"
                             type='LastName' 
                             placeholder='Last Name'
-                            //onChange={ (e) => setLastName(e.target.value)}					
+                            onChange={ (e) => this.setLastName(e.target.value)}					
                         />
                      </Form.Group>
                     <Form.Group className="mb-3 flex" controlId="address1">
@@ -151,13 +228,13 @@ export default class NewAccount extends Component {
                             className="formMedium"
                             type='Address' 
                             placeholder='Address'
-                              //onChange={ (e) => setAddress(e.target.value)}					
+                            onChange={ (e) => this.setAddress(e.target.value)}					
                         />
                         <Form.Control
                             className="formMedium"
                             type='City' 
                             placeholder='City'
-                            //onChange={ (e) => setCity(e.target.value)}						
+                            onChange={ (e) => this.setCity(e.target.value)}						
                         />
                     </Form.Group>
                     <Form.Group className="mb-3 flex" controlId="USState">
@@ -165,19 +242,19 @@ export default class NewAccount extends Component {
                             className="formSmall"
                             type='USState' 
                             placeholder='State'
-                            //onChange={ (e) => setUSState(e.target.value)}					
+                            onChange={ (e) => this.setUSState(e.target.value)}					
                         />
                         <Form.Control
                             className="formSmall"
                             type='ZipCode' 
                             placeholder='Zip'
-                            //onChange={ (e) => setZipCode(e.target.value)}					
+                            onChange={ (e) => this.setZipCode(e.target.value)}					
                         />
                         <Form.Control
                             className="formMedium"
                             type='PhoneNumber' 
                             placeholder='Phone #'
-                            //onChange={ (e) => setPhoneNumber(e.target.value)}					
+                            onChange={ (e) => this.setPhoneNumber(e.target.value)}					
                         />
                     </Form.Group>
                     <DropdownButton 
@@ -194,6 +271,7 @@ export default class NewAccount extends Component {
                         </Dropdown.Item>
                     </DropdownButton>
                     <div>{this.ifIsPilot()}</div>
+                    <input type="submit" value="Submit" className="btn btn-primary"/>
                 </Form>
             </div>
         );

@@ -10,6 +10,7 @@ export default class NewAccount extends Component {
         pilotQual: "Certification:"
     } 
 
+<<<<<<< Updated upstream
     // const [FirstName, setFirstName] = useState("");
 	// const [LastName, setLastName] = useState("");
 	// const [Address, setAddress] = useState("");
@@ -18,6 +19,8 @@ export default class NewAccount extends Component {
 	// const [ZipCode, setZipCode] = useState("");
 	// const [PhoneNumber, setPhoneNumber] = useState("");
 
+=======
+>>>>>>> Stashed changes
     //Event Handlers Go Here
     handlePilot = () =>{
         const userType = "Pilot";

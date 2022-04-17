@@ -10,6 +10,11 @@
     color:blue;
 }
 
+#name {
+    font-size: 25px;
+    justify-items:flex-start;
+}
+
 #title {
     
     margin:20px;

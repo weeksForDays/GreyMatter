@@ -6,25 +6,57 @@ const firestoreContext = createContext();
 
 export function FirestoreContextProvider({children}) {
 
-	const createUser = async (isPilot, email, ID) => {
+	const createUser = async (isPilot, email, ID, firstName, lastName, address, city, 
+		state, ZIP, phone, cert, airport, ICAO, aircraft, aircraftID) => {
 		if (isPilot) {
-			createPilot(email, ID);
+			createPilot(email, ID, firstName, lastName, address, city, 
+				state, ZIP, phone, cert, airport, ICAO, aircraft, aircraftID);
 		} else {
-			createPassenger(email, ID);
+			createPassenger(email, ID, firstName, lastName, address, city, 
+				state, ZIP, phone);
 		}
 	}
 
-	const createPilot = async (userEmail, userID) => {
-		setDoc(doc(db, "Users", "Pilots", "Accounts", userID.toString()), {
+	const createPilot = async (userEmail, userID, userFirstName, userLastName, userAddress, userCity, 
+		userState, userZIP, userPhone, pilotCert, pilotAirport, pilotICAO, pilotAircraft, pilotAircraftID ) => {
+		await setDoc(doc(db, "Users", "Pilots", "Accounts", userID.toString()), {
+
+			//Attributes shared between users
 			email: userEmail,
-			ID: userID
+			ID: userID,
+			firstName: userFirstName,
+			lastName: userLastName,
+			address: userAddress,
+			city: userCity,
+			state: userState,
+			ZIP: userZIP,
+			phone: userPhone,
+
+			//Attributes unique to pilots
+			cert: pilotCert,
+			airport: pilotAirport,
+			ICAO: pilotICAO,
+			aircraft: pilotAircraft,
+			aircraftID: pilotAircraftID
+
 		});
 	}
 
-	const createPassenger = async (userEmail, userID) => {
+	const createPassenger = async (userEmail, userID, userFirstName, userLastName, userAddress, userCity, 
+		userState, userZIP, userPhone) => {
 		await setDoc(doc(db, "Users", "Passengers", "Accounts", userID.toString()), {
+			
+			//Attributes shared between users
 			email: userEmail,
-			ID: userID
+			ID: userID,
+			firstName: userFirstName,
+			lastName: userLastName,
+			address: userAddress,
+			city: userCity,
+			state: userState,
+			ZIP: userZIP,
+			phone: userPhone
+
 		});
 	}
 

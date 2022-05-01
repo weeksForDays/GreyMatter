@@ -27,7 +27,7 @@ function App() {
                                     </ProtectedRoute>
                                 } />
                                 <Route path='/login' element={<Login />} />
-                                <Route path='/messager' element={<Messenger />} />
+                                <Route path='/messenger' element={<Messenger />} />
                                 <Route path='/signup' element={<Signup />} />
                                 <Route path='/accountGen' element={<div className = "p-4 box mt-3 text-center"><NewAccount /></div>} />
                                 <Route path='/firestoretest' element={

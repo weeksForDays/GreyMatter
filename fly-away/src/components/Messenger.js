@@ -3,11 +3,13 @@ import {db} from '../firebase';
 
 const Messenger = () => {
 
-	
+	const test = () => {
+		return "test";
+	}
 
 	return (
 		<div>
-			Hello World!
+			{test()}
 		</div>
 	)
 }

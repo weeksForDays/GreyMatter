@@ -8,7 +8,7 @@ import {useFirestore} from '../contexts/FirestoreContext';
 
 const Home = () => {
 
-	const {createConversation} = useFirestore();
+	const {createConversation, findConvo, logRef} = useFirestore();
 
 	const {logOut} = useUserAuth();
 
@@ -39,6 +39,11 @@ const Home = () => {
 
 	const handleUserGenTest = () => {
 		createConversation([{isPilot: true, ID: 343}, {isPilot: false, ID: 69420}]);
+		createConversation([{isPilot: true, ID: 33}, {isPilot: false, ID: 6920}]);
+		const convo = findConvo([{isPilot: true, ID: 343}, {isPilot: false, ID: 69420}]);
+
+		logRef(convo);
+
 	}
 
 	return (

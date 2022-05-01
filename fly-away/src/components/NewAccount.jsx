@@ -15,6 +15,7 @@ export default class NewAccount extends Component {
         City: "",
         USState: "",
         ZipCode: "",
+        PhoneNumber: "",
         Airport: "",
         ICAO: "",
         AircraftType: "",
@@ -60,7 +61,7 @@ export default class NewAccount extends Component {
     handleSubmit = (e) =>{
         e.preventDefault();
 
-        const {createUser} = useFirestore();
+        const {createUser} = useFirestore(); // Problem is here - can't use hook inside component
         createUser(
             this.state.userType,
             "test@test.com",
@@ -71,6 +72,7 @@ export default class NewAccount extends Component {
             this.state.City,
             this.state.USState,
             this.state.ZipCode,
+            this.state.PhoneNumber,
             this.state.Airport,
             this.state.ICAO,
             this.state.AircraftType,
@@ -81,53 +83,58 @@ export default class NewAccount extends Component {
     //Setter Methods for form completion
 
     setFirstName = (e) =>{
-        const FirstName = e.target.value;
-        this.setState(FirstName);
+        const FirstName = e;
+        this.setState({FirstName});
     }
 
     setLastName = (e) =>{
-        const LastName = e.target.value;
-        this.setState(LastName);
+        const LastName = e;
+        this.setState({LastName});
     }
 
     setAddress = (e) =>{
-        const Address = e.target.value;
-        this.setState(Address);
+        const Address = e;
+        this.setState({Address});
     }
 
     setCity = (e) =>{
-        const City = e.target.value;
-        this.setState(City);
+        const City = e;
+        this.setState({City});
     }
 
     setUSState = (e) =>{
-        const USState = e.target.value;
-        this.setState(USState);
+        const USState = e;
+        this.setState({USState});
     }
 
     setZipCode = (e) =>{
-        const ZipCode = e.target.value;
-        this.setState(ZipCode);
+        const ZipCode = e;
+        this.setState({ZipCode});
+    }
+
+    setPhoneNumber = (e) =>{
+        const PhoneNumber = e;
+        this.setState({PhoneNumber});
     }
 
     setAirport = (e) =>{
-        const Airport = e.target.value;
-        this.setState(Airport);
+        const Airport = e;
+        this.setState({Airport});
     }
 
     setICAO = (e) =>{
-        const ICAO = e.target.value;
-        this.setState(ICAO);
+        const ICAO = e;
+        this.setState({ICAO});
     }
 
     setAircraftType = (e) =>{
-        const AircraftType = e.target.value;
-        this.setState(AircraftType);
+        const AircraftType = e;
+        this.setState({AircraftType});
     }
 
     setAircraftID = (e) =>{
-        const AircraftID = e.target.value;
-        this.setState(AircraftID);
+        const AircraftID = e;
+        this.setState({AircraftID});
     }
 
     //Other Functions Go Here
@@ -276,4 +283,8 @@ export default class NewAccount extends Component {
             </div>
         );
     }
+}
+
+function getHook() {
+
 }
